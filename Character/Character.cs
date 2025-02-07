@@ -35,4 +35,10 @@ public class Character
     {
         return new() { Name = Name, Class = Class, Level = Level, HitPoints = HitPoints, Inventory = InventoryManager.ToString(Inventory) };
     }
+
+    public void DisplayCharacterInfo()
+    {
+        Console.WriteLine($"{Name}  |  Level {Level} {Class}  |  HP: {HitPoints}");
+        InventoryManager.ListInventory(Inventory);
+    }
 }

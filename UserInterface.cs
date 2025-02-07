@@ -9,10 +9,11 @@
                 "╔═════════════════════════╗\n" +
                 "║        Main Menu        ║\n" +
                 "╠═════════════════════════╣\n" +
-                "║1. Display Characters    ║\n" +
-                "║2. New Character         ║\n" +
-                "║3. Level Up Character    ║\n" +
-                "║4. Exit                  ║\n" +
+                "║ 1. Display Characters   ║\n" +
+                "║ 2. Find Character       ║\n" +
+                "║ 3. New Character        ║\n" +
+                "║ 4. Level Up Character   ║\n" +
+                "║ 5. Exit                 ║\n" +
                 "╚═════════════════════════╝\n");
         }
 

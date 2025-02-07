@@ -1,7 +1,8 @@
 ﻿namespace w3_assignment_ksteph.Character;
 
-using CsvHelper;
-using System.Globalization;
+using System;
+using System.Drawing;
+using Console = Colorful.Console;
 using w3_assignment_ksteph.Csv;
 using w3_assignment_ksteph.DataHelper;
 using w3_assignment_ksteph.Inventory;
@@ -19,9 +20,8 @@ public static class CharacterManager
 
         foreach (Character character in CharacterManager.Characters)
         {
-            DisplayCharacterInfo(character);
+            character.DisplayCharacterInfo();
 
-            InventoryManager.ListInventory(character.Inventory);
         }
     }
 
@@ -37,39 +37,46 @@ public static class CharacterManager
         Console.WriteLine($"\nWelcome, {name} the {characterClass}! You are level {level} and your equipment includes: {string.Join(", ", inventory)}.\n");
 
         CharacterManager.AddCharacter(
-            new() { Name = name, Class = characterClass, Level = level, HitPoints = hitPoints, Inventory = InventoryManager.ToInventory(inventory) } );
+            new() { Name = name, Class = characterClass, Level = level, HitPoints = hitPoints, Inventory = InventoryManager.ToInventory(inventory) });
 
         CsvManager.ExportCharacters();
     }
 
-    public static void LevelUp()
+    public static void FindCharacter()
     {
-        string levelingCharacterName = Input.GetString("Please enter the name of the character you would like to level up: ");
+        string characterName = Input.GetString("What is the name of the character you would like to search for? ");
+        Character character = FindCharacterByName(characterName);
         Console.Clear();
 
-        int charactersLeveled = 0;
-        foreach (Character character in CharacterManager.Characters)
+        if (character != null)
         {
-            if (character.Name == levelingCharacterName)
-            {
-                character.LevelUp();
-                charactersLeveled += 1;
-            }
-        }
-
-        if (charactersLeveled > 0)
+            character.DisplayCharacterInfo();
+        } else
         {
-            Console.WriteLine($"\n{charactersLeveled} characters leveled up!\n");
-        }
-        else
-        {
-            Console.WriteLine($"No characters with that name found.");
+            Console.WriteLine($"No characters found with the name {characterName}\n", Color.Red);
         }
     }
 
-    public static void DisplayCharacterInfo(Character character)
+    public static Character? FindCharacterByName(string name)
     {
-        Console.WriteLine($"{character.Name}  |  Level {character.Level} {character.Class}  |  HP: {character.HitPoints}");
+        return Characters.Where(character => character.Name == name).FirstOrDefault();
+    }
+
+    public static void LevelUp()
+    {
+        string characterName = Input.GetString("What is the name of the character that you would like to level up? ");
+        Character character = FindCharacterByName(characterName);
+        Console.Clear();
+
+        if (character != null)
+        {
+            character.LevelUp();
+            Console.WriteLine($"Congratulations! {characterName} has reached level {character.Level}\n", Color.Green);
+        }
+        else
+        {
+            Console.WriteLine($"No characters found with the name {characterName}\n", Color.Red);
+        }
     }
 
     public static void AddCharacter(Character character)
