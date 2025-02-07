@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("w3-assignment-ksteph")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+937cdbb6778ee234d5178b551ea469f1f7bb7113")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9d3d9506efe43868e94280f00d2f49ad4e744bbc")]
 [assembly: System.Reflection.AssemblyProductAttribute("w3-assignment-ksteph")]
 [assembly: System.Reflection.AssemblyTitleAttribute("w3-assignment-ksteph")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
