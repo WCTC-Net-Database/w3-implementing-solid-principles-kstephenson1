@@ -1,38 +1,52 @@
-﻿namespace CharacterConsole;
+﻿namespace w3_assignment_ksteph;
+
+using DataHelper;
+using w3_assignment_ksteph.Character;
+using w3_assignment_ksteph.Csv;
 
 class Program
 {
     static void Main()
     {
-        var input = new ConsoleInput();
-        var output = new ConsoleOutput();
-
-        // Create an instance of CharacterManager and call the Run method to start the program
-        // This will enable the user to interact with the program and manage characters
-        // The reason for creating an instance of CharacterManager is to separate the concerns of the program
-        // This will allow for easier testing and maintenance of the program
-        var manager = new CharacterManager(input, output);
-        manager.Run();
-    }
-}
-
-class ConsoleInput : IInput
-{
-    public string ReadLine()
-    {
-        return Console.ReadLine();
-    }
-}
-
-class ConsoleOutput : IOutput
-{
-    public void WriteLine(string message)
-    {
-        Console.WriteLine(message);
+        Initiation();
+        Run();
+        End();
     }
 
-    public void Write(string message)
+    public static void Initiation()
     {
-        Console.Write(message);
+        CsvManager.ImportCharacters();
+    }
+
+    public static void Run()
+    {
+        // Will run until exit is selected
+        while (true)
+        {
+            UserInterface.MainMenu();
+
+            int selection = Input.GetInt(1, 4, "Value must be between 1-4"); // Uses a helper file to get an int between 1-4 from the user
+
+            if (selection == 4) break; // Exits the program if '4' is selected.
+
+            switch (selection) // Checks the input from the user and responds appropriately.
+            {
+                case 1:
+                    CharacterManager.DisplayAllCharacters();
+                    break;
+                case 2:
+                    CharacterManager.NewCharacter();
+                    break;
+                case 3:
+                    CharacterManager.LevelUp();
+                    break;
+            }
+        }
+    }
+
+    public static void End()
+    {
+        CsvManager.ExportCharacters();
+        UserInterface.ExitMenu();
     }
 }
