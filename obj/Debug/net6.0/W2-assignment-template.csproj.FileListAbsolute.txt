@@ -1,0 +1,6 @@
+C:\Users\ghana\OneDrive\Desktop\WCTC\2025\Net Database Programming\w2-assignment-stephensonkyle\obj\Debug\net6.0\W2-assignment-template.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ghana\OneDrive\Desktop\WCTC\2025\Net Database Programming\w2-assignment-stephensonkyle\obj\Debug\net6.0\W2-assignment-template.AssemblyInfoInputs.cache
+C:\Users\ghana\OneDrive\Desktop\WCTC\2025\Net Database Programming\w2-assignment-stephensonkyle\obj\Debug\net6.0\W2-assignment-template.AssemblyInfo.cs
+C:\Users\ghana\OneDrive\Desktop\WCTC\2025\Net Database Programming\w2-assignment-stephensonkyle\obj\Debug\net6.0\W2-assignment-template.csproj.CoreCompileInputs.cache
+C:\Users\ghana\OneDrive\Desktop\WCTC\2025\Net Database Programming\w2-assignment-stephensonkyle\obj\Debug\net6.0\W2-assignment-template.sourcelink.json
+C:\Users\ghana\OneDrive\Desktop\WCTC\2025\Net Database Programming\w2-assignment-stephensonkyle\obj\Debug\net6.0\W2-assignment-template.csproj.AssemblyReference.cache
