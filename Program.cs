@@ -81,5 +81,6 @@ class Program
         Console.WriteLine("", Color.Pink);
         Console.WriteLine("", Color.Magenta);
         Console.Clear();
+        Console.Clear();
     }
 }
