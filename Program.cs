@@ -7,12 +7,12 @@ using DataHelper;
 using System.Diagnostics;
 using w3_assignment_ksteph.Character;
 using w3_assignment_ksteph.Csv;
+using w3_assignment_ksteph.Patches.ColorfulConsole;
 
 class Program
 {
     static void Main()
     {
-        ColorBugCorrector();
         Initiation();
         Run();
         End();
@@ -20,13 +20,13 @@ class Program
 
     public static void Initiation()
     {
-        CsvManager.ImportCharacters();
+        ColorfulConsolePatcher.ColorBugPatch(); // Colorful.Console patch that fixes the incorrect colors showing on newer windows machines.
+        CsvManager.ImportCharacters(); //Imports the caracters from the csv file.
     }
 
     public static void Run()
     {
-        // Will run until exit is selected
-        while (true)
+        while (true) // Will run until exit is selected
         {
             UserInterface.MainMenu();
 
@@ -55,32 +55,9 @@ class Program
 
     public static void End()
     {
-        CsvManager.ExportCharacters();
-        UserInterface.ExitMenu();
+        CsvManager.ExportCharacters(); //Outputs the characters into the csv file.
+        UserInterface.ExitMenu(); //Shows the exit menu and leaves the program.
     }
 
-    private static void ColorBugCorrector()
-    {
-        /*
-         * Colorful.Console has a bug that results in the colors being generated in an specific order instead of as named.
-         * This NuGet package is broken but this line of code seems to fix the colors.  I would be better off using the
-         * built in console colors instead of this package.
-         */
-
-        Console.WriteLine("", Color.Blue);
-        Console.WriteLine("", Color.Green);
-        Console.WriteLine("", Color.Cyan);
-        Console.WriteLine("", Color.Red);
-        Console.WriteLine("", Color.Purple);
-        Console.WriteLine("", Color.Yellow);
-        Console.WriteLine("", Color.White);
-        Console.WriteLine("", Color.Gray);
-        Console.WriteLine("", Color.LightBlue);
-        Console.WriteLine("", Color.LightGreen);
-        Console.WriteLine("", Color.Teal);
-        Console.WriteLine("", Color.Pink);
-        Console.WriteLine("", Color.Magenta);
-        Console.Clear();
-        Console.Clear();
-    }
+    
 }
