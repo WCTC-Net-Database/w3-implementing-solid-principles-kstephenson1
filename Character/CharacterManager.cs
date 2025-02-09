@@ -12,7 +12,18 @@ using w3_assignment_ksteph.Inventory;
 
 public static class CharacterManager
 {
+    private const string CHARACTER_PATH = "input.csv";
     public static List<Character> Characters { get; set; } = new();
+
+    public static void ImportCharacters()
+    {
+        Characters = CsvManager.ImportCharacters(CHARACTER_PATH);
+    }
+
+    public static void ExportCharacters()
+    {
+        CsvManager.ExportCharacters(Characters, CHARACTER_PATH);
+    }
 
     public static void DisplayAllCharacters() //Displays each character's information.
     {
