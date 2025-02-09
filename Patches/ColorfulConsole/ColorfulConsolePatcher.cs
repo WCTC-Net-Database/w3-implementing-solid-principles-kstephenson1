@@ -1,6 +1,5 @@
 ﻿namespace w3_assignment_ksteph.Patches.ColorfulConsole;
 
-using System;
 using System.Drawing;
 using Console = Colorful.Console;
 

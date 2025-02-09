@@ -1,7 +1,6 @@
 ﻿namespace w3_assignment_ksteph.Csv;
 
 using CsvHelper.Configuration.Attributes;
-using w3_assignment_ksteph.Inventory;
 
 // The Character class is used to store the character information while the csv is being read and written.
 public class CsvCharacterIO

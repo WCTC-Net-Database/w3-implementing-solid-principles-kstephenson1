@@ -1,6 +1,5 @@
 ﻿namespace w3_assignment_ksteph.Character;
 
-using System;
 using System.Drawing;
 using Console = Colorful.Console;
 using w3_assignment_ksteph.Csv;

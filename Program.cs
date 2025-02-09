@@ -2,7 +2,6 @@
 
 using DataHelper;
 using w3_assignment_ksteph.Character;
-using w3_assignment_ksteph.Csv;
 using w3_assignment_ksteph.Patches.ColorfulConsole;
 
 class Program

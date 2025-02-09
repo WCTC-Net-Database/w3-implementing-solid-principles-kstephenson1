@@ -2,7 +2,6 @@
 
 using CsvHelper;
 using CsvHelper.Configuration;
-using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using w3_assignment_ksteph.Character;

@@ -1,6 +1,5 @@
 ﻿namespace w3_assignment_ksteph.Character;
 
-using System.Reflection.Emit;
 using w3_assignment_ksteph.Inventory;
 public class Character
 {
