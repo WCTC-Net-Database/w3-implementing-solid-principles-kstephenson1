@@ -31,7 +31,7 @@ public class Character
         Level++;
     }
 
-    public CsvCharacterIO ToCsvCharacterIO(Character character)
+    public CsvCharacterIO ToCsvCharacterIO()
     {
         return new() { Name = Name, Class = Class, Level = Level, HitPoints = HitPoints, Inventory = InventoryManager.ToString(Inventory) };
     }
