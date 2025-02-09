@@ -1,8 +1,6 @@
 ﻿namespace w3_assignment_ksteph.Character;
 
 using System.Reflection.Emit;
-using System.Xml.Linq;
-using w3_assignment_ksteph.Csv;
 using w3_assignment_ksteph.Inventory;
 public class Character
 {
@@ -29,11 +27,6 @@ public class Character
     public void LevelUp()
     {
         Level++;
-    }
-
-    public CsvCharacterIO ToCsvCharacterIO()
-    {
-        return new() { Name = Name, Class = Class, Level = Level, HitPoints = HitPoints, Inventory = InventoryManager.ToString(Inventory) };
     }
 
     public void DisplayCharacterInfo()
