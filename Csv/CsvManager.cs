@@ -12,6 +12,6 @@ public static class CsvManager
         return new(character.Name, character.Class, character.Level, character.HitPoints, InventoryManager.ToString(character.Inventory));
     }
     
-    public static void ImportCharacters(string path) => CsvCharacterReader(path)
-    public static void ExportCharacters(List<Character> characters, string path) => CsvCharacterWriter(characters, path)
+    public static void ImportCharacters(string path) => CsvCharacterReader(path);
+    public static void ExportCharacters(List<Character> characters, string path) => CsvCharacterWriter(characters, path);
 }
