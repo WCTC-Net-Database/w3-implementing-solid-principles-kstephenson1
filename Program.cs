@@ -10,15 +10,16 @@ class Program
 {
     static void Main()
     {
-        Initiation();
+        Initialization();
         //Test();
         Run();
         End();
     }
 
-    public static void Initiation()
+    public static void Initialization()
     {
-        UserInterface.BuildMenus();
+        // The Initialic
+        UserInterface.BuildMenus(); // Builds the menus and prepares the user interface tables.
         ColorfulConsolePatcher.ColorBugPatch(); // Colorful.Console patch that fixes the incorrect colors showing on newer windows machines.
         CharacterManager.ImportCharacters(); //Imports the caracters from the csv file.
     }
@@ -27,13 +28,13 @@ class Program
     {
         while (true) // Will run until exit is selected
         {
-            UserInterface.MainMenu.Show();
+            UserInterface.MainMenu.Show(); //Shows the main menu.
 
             int selection = Input.GetInt(1, 5, "Value must be between 1-5"); // Uses a helper file to get an int between 1-5 from the user
 
             if (selection == 5) break; // Exits the program if '5' is selected.
 
-            UserInterface.MainMenu.Action(selection);
+            UserInterface.MainMenu.Action(selection); // Runs the action of the selected main menu item.
         }
     }
 
