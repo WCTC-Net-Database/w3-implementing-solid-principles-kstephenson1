@@ -1,30 +1,35 @@
-﻿namespace w3_assignment_ksteph.UI;
+﻿using Spectre.Console;
+using w3_assignment_ksteph.Character;
+
+namespace w3_assignment_ksteph.UI;
 
 // The UI class contains elements for the UI including the main menu and the exit message.
 public static class UserInterface
 {
-    public static void MainMenu()
+    public static MainMenu MainMenu { get; set; } = new();
+    public static ExitMenu ExitMenu { get; set; } = new();
+
+    public static void BuildMenus()
     {
-        Console.WriteLine(
-            "╔═════════════════════════╗\n" +
-            "║        Main Menu        ║\n" +
-            "╠═════════════════════════╣\n" +
-            "║ 1. Display Characters   ║\n" +
-            "║ 2. Find Character       ║\n" +
-            "║ 3. New Character        ║\n" +
-            "║ 4. Level Up Character   ║\n" +
-            "║ 5. Exit                 ║\n" +
-            "╚═════════════════════════╝\n");
+        BuildMainMenu();
+        BuildExitMenu();
     }
 
-    public static void ExitMenu()
+    private static void BuildMainMenu()
     {
-        Console.Clear();
-        Console.WriteLine(
-            "\n\n\n\n\n\n\n\n\n" +
-            "          ╔═════════════════════════════════════════════════════╗\n" +
-            "          ║    Thank you for using the RPG Character Editor.    ║\n" +
-            "          ╚═════════════════════════════════════════════════════╝\n" +
-            "\n\n\n\n\n\n\n\n\n");
+        MainMenu = new();
+        MainMenu.AddMenuItem(1, "Display All Characters", "Displays all characters and items in their inventory.", CharacterManager.DisplayAllCharacters);
+        MainMenu.AddMenuItem(2, "Find Character", "Finds an existing character by name.", CharacterManager.FindCharacter);
+        MainMenu.AddMenuItem(3, "New Character", "Creates a new character.", CharacterManager.NewCharacter);
+        MainMenu.AddMenuItem(4, "Level Up Chracter", "Levels an existing character.", CharacterManager.LevelUp);
+        MainMenu.AddMenuItem(5, "Exit", "Ends the program.", CharacterManager.LevelUp);
+        MainMenu.BuildTable();
+    }
+
+    private static void BuildExitMenu()
+    {
+        ExitMenu = new();
+        ExitMenu.AddMenuItem("Thank you for using the RPG Character Editor.");
+        ExitMenu.BuildTable();
     }
 }
