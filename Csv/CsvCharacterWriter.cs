@@ -1,10 +1,12 @@
 ﻿namespace w3_assignment_ksteph.Csv;
 
 using CsvHelper;
+using CsvHelper.Configuration;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using w3_assignment_ksteph.Character;
+using w3_assignment_ksteph.Config;
 
 public static class CsvCharacterWriter
 {
@@ -13,6 +15,16 @@ public static class CsvCharacterWriter
     {
         List<CsvCharacterIO> outputCharacters = new();
 
+        // Checks the Config to determine whether or not to add double quotes to the csv writer output.
+        if (Config.CSV_CHARACTER_WRITER_QUOTES_ON_EXPORT)
+        {
+            CsvConfiguration config = new CsvConfiguration(CultureInfo.InvariantCulture) { ShouldQuote = args => true };
+        }
+        else
+        {
+            CsvConfiguration config = new CsvConfiguration(CultureInfo.InvariantCulture);
+        }
+            
         foreach (Character character in characters)
         {
             outputCharacters.Add(CsvManager.CharactertoCsv(character));
@@ -20,8 +32,8 @@ public static class CsvCharacterWriter
 
 
         using StreamWriter writer = new(path);
-        using CsvWriter csvOut = new(writer, CultureInfo.InvariantCulture);
-
+        using CsvWriter csvOut = new(writer, config);
+        
         csvOut.WriteRecords(outputCharacters);
     }
 }
