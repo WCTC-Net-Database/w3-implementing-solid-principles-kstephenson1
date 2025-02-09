@@ -2,6 +2,7 @@
 
 using System.Drawing;
 using Console = Colorful.Console;
+using w3_assignment_ksteph.Config;
 using w3_assignment_ksteph.Csv;
 using w3_assignment_ksteph.DataHelper;
 using w3_assignment_ksteph.Inventory;
@@ -39,7 +40,7 @@ public static class CharacterManager
     {
         string name = Input.GetString("Enter your character's name: ");
         string characterClass = Input.GetString("Enter your character's class: ");
-        int level = Input.GetInt("Enter your character's level: ", 1, "must be greater than 0");
+        int level = Input.GetInt("Enter your character's level: ", 1, Config.CHARACTER_LEVEL_MAX, $"character level must be 1-{Config.CHARACTER_LEVEL_MAX}");
         int hitPoints = Input.GetInt("Enter your character's maximum hit points: ", 1, "must be greater than 0");
         string? inventory = Input.GetString("Enter your character's equipment (separate items with a '|'): ", false);
 

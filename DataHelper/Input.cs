@@ -48,6 +48,24 @@ class Input
         } while (true);
     }
 
+    public static int GetInt(string question, int minValue, int maxValue, string errorMessage)
+    {
+        int response;
+        do
+        {
+            response = GetInt(question, minValue, errorMessage);
+            if (response > maxValue)
+            {
+                Console.WriteLine($"That number is not valid. Please try again. ({errorMessage})");
+                continue;
+            }
+            else
+            {
+                return response;
+            }
+        } while (true);
+    }
+
     public static int GetInt(string question, int minValue, int maxValue, string minValueErrorMessage, string maxValueErrorMessage)
     {
         int response;
