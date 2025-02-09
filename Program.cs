@@ -1,14 +1,16 @@
-﻿namespace w3_assignment_ksteph;
-
-using DataHelper;
+﻿
+using w3_assignment_ksteph.DataHelper;
 using w3_assignment_ksteph.Character;
 using w3_assignment_ksteph.Patches.ColorfulConsole;
 using w3_assignment_ksteph.UI;
+
+namespace w3_assignment_ksteph;
 
 class Program
 {
     static void Main()
     {
+        Test();
         Initiation();
         Run();
         End();
@@ -55,5 +57,9 @@ class Program
         UserInterface.ExitMenu(); //Shows the exit menu and leaves the program.
     }
 
+    public static void Test()
+    {
+       
+    }
     
 }
