@@ -19,7 +19,7 @@ public static class CsvCharacterReader
 
         foreach (CsvCharacterIO csvCharacter in csvCharacters)
         {
-            characters.Add(csvCharacter.ToCharacter());
+            characters.Add(CsvManager.CsvToCharacter(csvCharacter));
         }
 
       return characters;

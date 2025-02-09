@@ -50,7 +50,7 @@ public static class CharacterManager
         CharacterManager.AddCharacter(
             new() { Name = name, Class = characterClass, Level = level, HitPoints = hitPoints, Inventory = InventoryManager.ToInventory(inventory) });
 
-        CsvManager.ExportCharacters();
+        CharacterManager.ExportCharacters();
     }
 
     public static void FindCharacter()
