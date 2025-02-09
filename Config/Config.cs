@@ -8,7 +8,7 @@ public static class Config
      *       CHARACTER SETTINGS      *
      * * * * * * * * * * * * * * * * */
 
-    // If true, the program will add double quotes on all values when writing .csv files.(Default: true)
+    // Sets the maximum level for characters. (Default: 20)
     public const int CHARACTER_LEVEL_MAX = 20;
 
     /* * * * * * * * * * * * * * * * *
