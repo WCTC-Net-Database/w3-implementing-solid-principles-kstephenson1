@@ -16,13 +16,14 @@ public static class CsvCharacterWriter
         List<CsvCharacterIO> outputCharacters = new();
 
         // Checks the Config to determine whether or not to add double quotes to the csv writer output.
+        CsvConfiguration config;
         if (Config.CSV_CHARACTER_WRITER_QUOTES_ON_EXPORT)
         {
-            CsvConfiguration config = new CsvConfiguration(CultureInfo.InvariantCulture) { ShouldQuote = args => true };
+            config = new CsvConfiguration(CultureInfo.InvariantCulture) { ShouldQuote = args => true };
         }
         else
         {
-            CsvConfiguration config = new CsvConfiguration(CultureInfo.InvariantCulture);
+            config = new CsvConfiguration(CultureInfo.InvariantCulture);
         }
             
         foreach (Character character in characters)
