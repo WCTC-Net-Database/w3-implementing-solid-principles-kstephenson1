@@ -15,10 +15,12 @@ public class ColorfulConsolePatcher
          */
 
         List<Color> colors = new()
-        {   Color.Blue,         Color.Green,        Color.Cyan,     Color.Red,
+        {   
+            Color.Blue,         Color.Green,        Color.Cyan,     Color.Red,
             Color.Purple,       Color.Yellow,       Color.White,    Color.Gray,
             Color.LightBlue,    Color.LightGreen,   Color.Teal,     Color.Pink,
-            Color.Magenta };
+            Color.Magenta
+        };
 
         foreach (Color color in colors)
         {
