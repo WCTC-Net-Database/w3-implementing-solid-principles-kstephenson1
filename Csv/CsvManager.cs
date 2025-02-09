@@ -2,9 +2,6 @@
 
 public static class CsvManager
 {
-    private const string CHARACTER_PATH = "input.csv";
-    
-    public static void ImportCharacters() => CsvCharacterReader(CHARACTER_PATH)
-
-    public static void ExportCharacters() => CsvCharacterWriter(CharacterManager.Characters, CHARACTER_PATH)
+    public static void ImportCharacters(string path) => CsvCharacterReader(path)
+    public static void ExportCharacters(List<Character> characters, string path) => CsvCharacterWriter(characters, path)
 }
