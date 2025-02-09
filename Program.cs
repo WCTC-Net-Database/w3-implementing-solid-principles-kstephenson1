@@ -17,7 +17,7 @@ class Program
     public static void Initiation()
     {
         ColorfulConsolePatcher.ColorBugPatch(); // Colorful.Console patch that fixes the incorrect colors showing on newer windows machines.
-        CsvManager.ImportCharacters(); //Imports the caracters from the csv file.
+        CharacterManager.ImportCharacters(); //Imports the caracters from the csv file.
     }
 
     public static void Run()
@@ -51,7 +51,7 @@ class Program
 
     public static void End()
     {
-        CsvManager.ExportCharacters(); //Outputs the characters into the csv file.
+        CharacterManager.ExportCharacters(); //Outputs the characters into the csv file.
         UserInterface.ExitMenu(); //Shows the exit menu and leaves the program.
     }
 
