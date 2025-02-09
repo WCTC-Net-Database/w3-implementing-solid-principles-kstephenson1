@@ -28,8 +28,6 @@ public static class CsvManager
         using StreamWriter writer = new(CHARACTER_PATH);
         using CsvWriter csvOut = new(writer, CultureInfo.InvariantCulture);
 
-        csvOut.WriteRecords(CharacterManager.Characters);
-
         foreach (Character character in CharacterManager.Characters)
         {
             csvOut.WriteRecords(character.ToCsvCharacterIO());
