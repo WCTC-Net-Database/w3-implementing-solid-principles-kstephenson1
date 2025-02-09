@@ -14,19 +14,17 @@ public class ColorfulConsolePatcher
          * the built in console colors instead of this package.
          */
 
-        Console.WriteLine("", Color.Blue);
-        Console.WriteLine("", Color.Green);
-        Console.WriteLine("", Color.Cyan);
-        Console.WriteLine("", Color.Red);
-        Console.WriteLine("", Color.Purple);
-        Console.WriteLine("", Color.Yellow);
-        Console.WriteLine("", Color.White);
-        Console.WriteLine("", Color.Gray);
-        Console.WriteLine("", Color.LightBlue);
-        Console.WriteLine("", Color.LightGreen);
-        Console.WriteLine("", Color.Teal);
-        Console.WriteLine("", Color.Pink);
-        Console.WriteLine("", Color.Magenta);
+        List<Color> colors = new()
+        {   Color.Blue,         Color.Green,        Color.Cyan,     Color.Red,
+            Color.Purple,       Color.Yellow,       Color.White,    Color.Gray,
+            Color.LightBlue,    Color.LightGreen,   Color.Teal,     Color.Pink,
+            Color.Magenta };
+
+        foreach (Color color in colors)
+        {
+            Console.Write("", color);
+        }
+
         Console.Clear();
     }
 }
