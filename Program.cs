@@ -3,7 +3,6 @@ using w3_assignment_ksteph.DataHelper;
 using w3_assignment_ksteph.Character;
 using w3_assignment_ksteph.Patches.ColorfulConsole;
 using w3_assignment_ksteph.UI;
-using Spectre.Console;
 
 namespace w3_assignment_ksteph;
 

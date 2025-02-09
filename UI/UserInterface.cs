@@ -1,5 +1,4 @@
-﻿using Spectre.Console;
-using w3_assignment_ksteph.Character;
+﻿using w3_assignment_ksteph.Character;
 
 namespace w3_assignment_ksteph.UI;
 
@@ -7,7 +6,7 @@ namespace w3_assignment_ksteph.UI;
 public static class UserInterface
 {
     public static MainMenu MainMenu { get; set; } = new();
-    public static ExitMenu ExitMenu { get; set; } = new();
+    public static Menu ExitMenu { get; set; } = new();
 
     public static void BuildMenus()
     {
@@ -22,7 +21,7 @@ public static class UserInterface
         MainMenu.AddMenuItem(2, "Find Character", "Finds an existing character by name.", CharacterManager.FindCharacter);
         MainMenu.AddMenuItem(3, "New Character", "Creates a new character.", CharacterManager.NewCharacter);
         MainMenu.AddMenuItem(4, "Level Up Chracter", "Levels an existing character.", CharacterManager.LevelUp);
-        MainMenu.AddMenuItem(5, "Exit", "Ends the program.", CharacterManager.LevelUp);
+        MainMenu.AddMenuItem(5, "Exit", "Ends the program.", null);
         MainMenu.BuildTable();
     }
 
