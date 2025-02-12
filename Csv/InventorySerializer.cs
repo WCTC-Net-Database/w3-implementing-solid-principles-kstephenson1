@@ -5,6 +5,10 @@ using System.Collections.Generic;
 
 public class InventorySerializer
 {
+    public static void ListInventory(Inventory inventory)
+    {
+        ListInventory(ToString(inventory));
+    }
 
     public static void ListInventory(string inventoryString) // Takes the inventory string, splits it, and displays the inventory to the user.
     {
