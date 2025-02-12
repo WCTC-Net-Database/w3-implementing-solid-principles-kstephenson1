@@ -5,8 +5,8 @@ namespace w3_assignment_ksteph.UI;
 // The UI class contains elements for the UI including the main menu and the exit message.
 public static class UserInterface
 {
-    public static MainMenu MainMenu { get; set; } = new();
-    public static Menu ExitMenu { get; set; } = new();
+    public static MainMenu MainMenu { get; private set; } = new();
+    public static Menu ExitMenu { get; private set; } = new();
 
     public static void BuildMenus()
     {

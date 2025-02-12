@@ -4,6 +4,7 @@ using Spectre.Console;
 using w3_assignment_ksteph.Config;
 using w3_assignment_ksteph.Csv;
 using w3_assignment_ksteph.DataHelper;
+using w3_assignment_ksteph.Inventory;
 
 
 // The CharacterHandler class contains methods that manipulate Character data, including displaying, adding, and leveling up characters.
@@ -40,13 +41,24 @@ public static class CharacterManager
         string characterClass = Input.GetString("Enter your character's class: ");
         int level = Input.GetInt("Enter your character's level: ", 1, Config.CHARACTER_LEVEL_MAX, $"character level must be 1-{Config.CHARACTER_LEVEL_MAX}");
         int hitPoints = Input.GetInt("Enter your character's maximum hit points: ", 1, "must be greater than 0");
-        string? inventory = Input.GetString("Enter your character's equipment (separate items with a '|'): ", false);
+        Inventory inventory = new();
+
+        while (true)
+        {
+            string? newItem = Input.GetString($"Enter the name of an item in {name}'s inventory. (Leave blank to end): ", false);
+            if (newItem != "")
+            {
+                inventory.Items.Add(new(newItem));
+                continue;
+            }
+            break;
+        }
 
         Console.Clear();
         Console.WriteLine($"\nWelcome, {name} the {characterClass}! You are level {level} and your equipment includes: {string.Join(", ", inventory)}.\n");
 
         CharacterManager.AddCharacter(
-            new() { Name = name, Class = characterClass, Level = level, HitPoints = hitPoints, Inventory = InventorySerializer.Deserialize(inventory) });
+            new() { Name = name, Class = characterClass, Level = level, HitPoints = hitPoints, Inventory = inventory });
 
         CharacterManager.ExportCharacters();
     }
@@ -81,7 +93,7 @@ public static class CharacterManager
         {
             character.LevelUp();
             AnsiConsole.MarkupLine($"[Green]Congratulations! {character.Name} has reached level {character.Level}[/]\n");
-            AnsiConsole.MarkupLine($"{characterName}  |  [Green]Level {character.Level}[/] {character.Class}  |  HP: {character.HitPoints}");
+            character.DisplayCharacterInfo();
         }
         else
         {

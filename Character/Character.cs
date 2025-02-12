@@ -22,10 +22,7 @@ public class Character
     [TypeConverter(typeof(InventoryConverter))]
     public required Inventory Inventory { get; set; }
 
-    public Character()
-    {
-
-    }
+    public Character() { }
 
     public Character(string name, string characterclass, int level, int hitPoints, Inventory inventory)
     {
@@ -43,14 +40,44 @@ public class Character
 
     public void DisplayCharacterInfo()
     {
-        Console.WriteLine($"{Name}  |  Level {Level} {Class}  |  HP: {HitPoints}");
-        InventoryManager.ListInventory(Inventory);
-    }
 
-    public void DisplayCharacterInfo(String color)
-    {
-        AnsiConsole.MarkupLine($"{Name}  |  Level [{color}]{Level}[/] {Class}  |  HP: {HitPoints}");
-        InventoryManager.ListInventory(Inventory);
+        Grid charTable = new Grid().Width(25).AddColumn().RightAligned();
+        charTable
+            .AddRow(new Text(Name).Centered())
+            .AddRow(new Text($"Level {Level} {Class}").Centered());
+
+        Grid hpTable = new Grid().Width(15).AddColumn();
+        hpTable
+            .AddRow(new Text($"Hit Points:").Centered())
+            .AddRow(new Text($"{HitPoints}/{HitPoints}").Centered());
+
+        Grid invHeader = new Grid().Width(25).AddColumn();
+        invHeader
+            .AddRow(new Text("Inventory:").RightJustified());
+
+        Grid invTable = new Grid();
+        invTable.AddColumn();
+
+        if (Inventory.Items.Any() == true)
+        {
+            foreach (Item item in Inventory.Items)
+            {
+                invTable.AddRow(item.Name);
+            }
+        }
+        else
+        {
+            invTable.AddRow("(No Items)");
+        }
+
+        Table displayTable = new Table();
+        displayTable
+            .AddColumn(new TableColumn(charTable))
+            .AddColumn(new TableColumn(hpTable))
+            .AddRow(invHeader, invTable);
+
+        AnsiConsole.Write(displayTable);
+
     }
 
     public override string ToString()
