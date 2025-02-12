@@ -91,9 +91,14 @@ public static class CharacterManager
 
         if (character != null)
         {
-            character.LevelUp();
-            AnsiConsole.MarkupLine($"[Green]Congratulations! {character.Name} has reached level {character.Level}[/]\n");
-            character.DisplayCharacterInfo();
+            if (character.Level < Config.CHARACTER_LEVEL_MAX)
+            {
+                character.LevelUp();
+                AnsiConsole.MarkupLine($"[Green]Congratulations! {character.Name} has reached level {character.Level}[/]\n");
+                character.DisplayCharacterInfo();
+            }
+
+            AnsiConsole.MarkupLine($"[Red]{character.Name} is already max level! ({Config.CHARACTER_LEVEL_MAX})[/]\n");
         }
         else
         {
