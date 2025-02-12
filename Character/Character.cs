@@ -1,8 +1,8 @@
 ﻿namespace w3_assignment_ksteph.Character;
 
 using CsvHelper.Configuration.Attributes;
+using Spectre.Console;
 using w3_assignment_ksteph.Csv;
-using w3_assignment_ksteph.DataHelper;
 using w3_assignment_ksteph.Inventory;
 public class Character
 {
@@ -44,6 +44,12 @@ public class Character
     public void DisplayCharacterInfo()
     {
         Console.WriteLine($"{Name}  |  Level {Level} {Class}  |  HP: {HitPoints}");
+        InventoryManager.ListInventory(Inventory);
+    }
+
+    public void DisplayCharacterInfo(String color)
+    {
+        AnsiConsole.MarkupLine($"{Name}  |  Level [{color}]{Level}[/] {Class}  |  HP: {HitPoints}");
         InventoryManager.ListInventory(Inventory);
     }
 

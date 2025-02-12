@@ -1,11 +1,9 @@
 ﻿namespace w3_assignment_ksteph.Character;
 
-using System.Drawing;
-using Console = Colorful.Console;
+using Spectre.Console;
 using w3_assignment_ksteph.Config;
 using w3_assignment_ksteph.Csv;
 using w3_assignment_ksteph.DataHelper;
-using w3_assignment_ksteph.Inventory;
 
 
 // The CharacterHandler class contains methods that manipulate Character data, including displaying, adding, and leveling up characters.
@@ -64,7 +62,7 @@ public static class CharacterManager
             character.DisplayCharacterInfo();
         } else
         {
-            Console.WriteLine($"No characters found with the name {characterName}\n", Color.Red);
+            AnsiConsole.MarkupLine($"[Red]No characters found with the name {characterName}\n[/]");
         }
     }
 
@@ -82,14 +80,15 @@ public static class CharacterManager
         if (character != null)
         {
             character.LevelUp();
-            Console.WriteLine($"Congratulations! {character.Name} has reached level {character.Level}\n", Color.Green);
+            AnsiConsole.MarkupLine($"[Green]Congratulations! {character.Name} has reached level {character.Level}[/]\n");
+            AnsiConsole.MarkupLine($"{characterName}  |  [Green]Level {character.Level}[/] {character.Class}  |  HP: {character.HitPoints}");
         }
         else
         {
-            Console.WriteLine($"No characters found with the name {characterName}\n", Color.Red);
+            AnsiConsole.MarkupLine($"[Red]No characters found with the name {characterName}[/]\n");
+
         }
     }
-
     public static void AddCharacter(Character character)
     {
         Characters.Add(character);
