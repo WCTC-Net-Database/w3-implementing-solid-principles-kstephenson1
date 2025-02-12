@@ -7,12 +7,12 @@ public static class CsvManager
 {
     public static Character CsvToCharacter(CsvCharacterIO csvCharacter)
     {
-        return new(csvCharacter.Name, csvCharacter.Class, csvCharacter.Level, csvCharacter.HitPoints, InventoryManager.ToInventory(csvCharacter.Inventory));
+        return new(csvCharacter.Name, csvCharacter.Class, csvCharacter.Level, csvCharacter.HitPoints, InventorySerializer.Deserialize(csvCharacter.Inventory));
     }
 
     public static CsvCharacterIO CharactertoCsv(Character character)
     {
-        return new() { Name = character.Name, Class = character.Class, Level = character.Level, HitPoints = character.HitPoints, Inventory = InventoryManager.ToString(character.Inventory), };
+        return new() { Name = character.Name, Class = character.Class, Level = character.Level, HitPoints = character.HitPoints, Inventory = InventorySerializer.Serialize(character.Inventory), };
     }
     
     public static List<Character> ImportCharacters(string path) => CsvCharacterReader.Import(path);
