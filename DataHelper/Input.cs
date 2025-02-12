@@ -5,7 +5,11 @@ using System.Diagnostics;
 // The DataHelper.Input class contains a few methods and overrides that assist in gaining input from the user that includes different levels of input validation.
 class Input
 {
-
+    /// <summary>
+    /// Asks the user a question and returns an int.
+    /// </summary>
+    /// <param name="question">The question asked to the user.</param>
+    /// <returns><strong>Int</strong> provided by the user.</returns>
     public static int GetInt(string question)
     {
         int response;
@@ -30,6 +34,13 @@ class Input
         } while (true);
     }
 
+    /// <summary>
+    /// Asks the user a question and returns an int with a minumum value.
+    /// </summary>
+    /// <param name="question">The question asked to the user.</param>
+    /// <param name="minValue">Minimum value allowed to be returned by the user.</param>
+    /// <param name="minValueErrorMessage">Error message to be returned to the user if the value is less than the minimum threshold.</param>
+    /// <returns><strong>Int</strong> provided by the user that falls in the parameters.</returns>
     public static int GetInt(string question, int minValue, string minValueErrorMessage)
     {
         int response;
@@ -48,6 +59,14 @@ class Input
         } while (true);
     }
 
+    /// <summary>
+    /// Asks the user a question and returns an int with a minumum and maximum value.
+    /// </summary>
+    /// <param name="question">The question asked to the user.</param>
+    /// <param name="minValue">Minimum value allowed to be returned by the user.</param>
+    /// <param name="maxValue">Maximum value allowed to be returned by the user.</param>
+    /// <param name="errorMessage">Error message to be returned to the user if the value is less than the minimum threshold or greater than the maximum threshold.</param>
+    /// <returns><strong>Int</strong> provided by the user that falls in the parameters.</returns>
     public static int GetInt(string question, int minValue, int maxValue, string errorMessage)
     {
         int response;
@@ -66,6 +85,15 @@ class Input
         } while (true);
     }
 
+    /// <summary>
+    /// Asks the user a question and returns an int with a minumum and maximum value.
+    /// </summary>
+    /// <param name="question">The question asked to the user.</param>
+    /// <param name="minValue">Minimum value allowed to be returned by the user.</param>
+    /// <param name="maxValue">Maximum value allowed to be returned by the user.</param>
+    /// <param name="minValueErrorMessage">Error message to be returned to the user if the value is less than the minimum threshold.</param>
+    /// <param name="maxValueErrorMessage">Error message to be returned to the user if the value is greater than the maximum threshold.</param>
+    /// <returns><strong>Int</strong> provided by the user that falls in the parameters.</returns>
     public static int GetInt(string question, int minValue, int maxValue, string minValueErrorMessage, string maxValueErrorMessage)
     {
         int response;
@@ -84,6 +112,14 @@ class Input
         } while (true);
     }
 
+    /// <summary>
+    /// Prompts the user without a question and returns an int with a minumum and maximum value.
+    /// </summary>
+    /// <param name="minValue">Minimum value allowed to be returned by the user.</param>
+    /// <param name="maxValue">Maximum value allowed to be returned by the user.</param>
+    /// <param name="minValueErrorMessage">Error message to be returned to the user if the value is less than the minimum threshold.</param>
+    /// <param name="maxValueErrorMessage">Error message to be returned to the user if the value is greater than the maximum threshold.</param>
+    /// <returns><strong>Int</strong> provided by the user that falls in the parameters.</returns>
     public static int GetInt(int minValue, int maxValue, string minValueErrorMessage, string maxValueErrorMessage)
     {
         int response;
@@ -102,6 +138,13 @@ class Input
         } while (true);
     }
 
+    /// <summary>
+    /// Prompts the user without a question and returns an int with a minumum and maximum value.
+    /// </summary>
+    /// <param name="minValue">Minimum value allowed to be returned by the user.</param>
+    /// <param name="maxValue">Maximum value allowed to be returned by the user.</param>
+    /// <param name="valueErrorMessage">Error message to be returned to the user if the value is less than the minimum threshold or greater than the maximum threshold.</param>
+    /// <returns><strong>Int</strong> provided by the user that falls in the parameters.</returns>
     public static int GetInt(int minValue, int maxValue, string valueErrorMessage)
     {
         int response;
@@ -120,12 +163,23 @@ class Input
         } while (true);
     }
 
+    /// <summary>
+    /// Prompts the user with a question and returns a string.
+    /// </summary>
+    /// <param name="prompt">Question asked to the user.</param>
+    /// <returns><strong>nullable string</strong> provided by the user.</returns>
     public static string GetString(string prompt)
     {
         string? response = GetString(prompt, true);
         return response;
     }
 
+    /// <summary>
+    /// Prompts the user with a question and returns a string with an option to set if an input is required.
+    /// </summary>
+    /// <param name="prompt">Question asked to the user.</param>
+    /// <param name="entryRequired">If true, response cannot be null or blank.</param>
+    /// <returns><strong>nullable string</strong> provided by the user that falls within the parameters.</returns>
     public static string GetString(string prompt, bool entryRequired)
     {
         Console.Write(prompt);
@@ -141,6 +195,12 @@ class Input
         return response;
     }
 
+    /// <summary>
+    /// Prompts the user with a question but restricts the answers to a set list.
+    /// </summary>
+    /// <param name="prompt">Question asked to the user.</param>
+    /// <param name="allowedResponsesList">A list of allowed responses.</param>
+    /// <returns><strong>nullable string</strong> provided by the user that falls within the parameters.</returns>
     public static string GetString(string prompt, List<string> allowedResponsesList)
     {
         string? response;
@@ -171,18 +231,14 @@ class Input
             break;
         } while (true);
 
-        /* This is here to remove the possibly null console warning.
-           response == null should be unreachable                    */
-        if (response != null)
-        {
-            return response.ToUpper();
-        }
-        else
-        {
-            throw new UnreachableException();
-        }
+        return response!.ToUpper();
     }
 
+    /// <summary>
+    /// Prompts the user with a question but restricts the answers to "y" or "n"
+    /// </summary>
+    /// <param name="prompt">Question asked to the user.</param>
+    /// <returns>returns "Y" or "N" dpending on user input.</returns>
     public static string GetYN(string prompt)
     {
         List<string> allowedResponsesList = ["y", "n"];
@@ -214,16 +270,7 @@ class Input
             break;
         } while (true);
 
-        /* This is here to remove the possibly null console warning.
-           response == null should be unreachable                    */
-        if (response != null)
-        {
-            return response.ToUpper();
-        }
-        else
-        {
-            throw new UnreachableException();
-        }
+        return response!.ToUpper();
     }
 
     private static bool IsResponseAllowed(string? response, List<string> allowedResponsesList, out string errorMessage)
