@@ -70,7 +70,7 @@ public static class CharacterManager
 
     public static Character? FindCharacterByName(string name)
     {
-        return Characters.Where(character => character.Name == name).FirstOrDefault();
+        return Characters.Where(character => character.Name.ToUpper() == name.ToUpper()).FirstOrDefault();
     }
 
     public static void LevelUp()
@@ -82,7 +82,7 @@ public static class CharacterManager
         if (character != null)
         {
             character.LevelUp();
-            Console.WriteLine($"Congratulations! {characterName} has reached level {character.Level}\n", Color.Green);
+            Console.WriteLine($"Congratulations! {character.Name} has reached level {character.Level}\n", Color.Green);
         }
         else
         {

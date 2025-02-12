@@ -12,7 +12,7 @@ public static class CsvCharacterWriter
 
     public static void Export(List<Character> characters, string path)
     {
-        List<CsvCharacterIO> outputCharacters = new();
+        List<Character> outputCharacters = new();
 
         // Checks the Config to determine whether or not to add double quotes to the csv writer output.
         CsvConfiguration config;
@@ -25,15 +25,9 @@ public static class CsvCharacterWriter
             config = new CsvConfiguration(CultureInfo.InvariantCulture);
         }
             
-        foreach (Character character in characters)
-        {
-            outputCharacters.Add(CsvManager.CharactertoCsv(character));
-        }
-
-
         using StreamWriter writer = new(path);
         using CsvWriter csvOut = new(writer, config);
         
-        csvOut.WriteRecords(outputCharacters);
+        csvOut.WriteRecords(characters);
     }
 }

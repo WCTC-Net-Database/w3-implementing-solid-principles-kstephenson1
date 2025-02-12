@@ -1,13 +1,26 @@
 ﻿namespace w3_assignment_ksteph.Character;
 
+using CsvHelper.Configuration.Attributes;
+using w3_assignment_ksteph.Csv;
+using w3_assignment_ksteph.DataHelper;
 using w3_assignment_ksteph.Inventory;
 public class Character
 {
-    public string Name { get; set; }
-    public string Class { get; set; }
-    public int Level { get; set; }
-    public int HitPoints { get; set; }
-    public Inventory Inventory { get; set; }
+    [Name("Name")]
+    public required string Name { get; set; }
+
+    [Name("Class")]
+    public required string Class { get; set; }
+
+    [Name("Level")]
+    public required int Level { get; set; }
+
+    [Name("HP")]
+    public required int HitPoints { get; set; }
+
+    [Name("Equipment")]
+    [TypeConverter(typeof(InventoryConverter))]
+    public required Inventory Inventory { get; set; }
 
     public Character()
     {
@@ -32,5 +45,10 @@ public class Character
     {
         Console.WriteLine($"{Name}  |  Level {Level} {Class}  |  HP: {HitPoints}");
         InventoryManager.ListInventory(Inventory);
+    }
+
+    public override string ToString()
+    {
+        return $"{Name},{Class},{Level},{HitPoints},{Inventory}";
     }
 }

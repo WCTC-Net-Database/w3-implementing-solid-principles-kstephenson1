@@ -1,10 +1,15 @@
-﻿namespace w3_assignment_ksteph.Csv;
+﻿using CsvHelper;
+using CsvHelper.Configuration;
+using CsvHelper.TypeConversion;
+using w3_assignment_ksteph.Inventory;
+
+namespace w3_assignment_ksteph.Csv;
 
 // The InventoryConverter is used to turn the csv string into an Inventory Object
 public class InventoryConverter : DefaultTypeConverter
 {
-    public override object ConvertFromString(string text, IRowReaderRow row, MemberMapData memberMapData)
+    public override object ConvertFromString(string? text, IReaderRow row, MemberMapData memberMapData)
     {
-        return InventoryManager.ToInventory(text);
+        return InventorySerializer.Deserialize(text);
     }
 }

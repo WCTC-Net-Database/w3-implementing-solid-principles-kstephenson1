@@ -2,7 +2,7 @@
 
 using System;
 using System.Collections.Generic;
-using w3_assignment_ksteph.Inventory
+using w3_assignment_ksteph.Inventory;
 
 public class InventorySerializer
 {
@@ -12,7 +12,7 @@ public class InventorySerializer
         return ToInventory(ToItemList(inventoryString));
     }
 
-    public static string Serialize(Inventory inventory)
+    public static string? Serialize(Inventory inventory)
     {
         // Converts Inventory into String
         return ToString(ToItemList(inventory));
@@ -20,7 +20,7 @@ public class InventorySerializer
     
     public static void ListInventory(Inventory inventory)
     {
-        ListInventory(ToString(inventory));
+        ListInventory(Serialize(inventory));
     }
 
     public static void ListInventory(string inventoryString) // Takes the inventory string, splits it, and displays the inventory to the user.

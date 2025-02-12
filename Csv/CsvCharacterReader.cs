@@ -9,19 +9,11 @@ public static class CsvCharacterReader
 {  
     public static List<Character> Import(string path)
     {
-
-        List<Character> characters = new();
-      
         using StreamReader reader = new(path);
         using CsvReader csv = new(reader, CultureInfo.InvariantCulture);
 
-        IEnumerable<CsvCharacterIO> csvCharacters = csv.GetRecords<CsvCharacterIO>();
+        IEnumerable<Character> characters = csv.GetRecords<Character>();
 
-        foreach (CsvCharacterIO csvCharacter in csvCharacters)
-        {
-            characters.Add(CsvManager.CsvToCharacter(csvCharacter));
-        }
-
-      return characters;
+        return characters.ToList();
     }
 }
