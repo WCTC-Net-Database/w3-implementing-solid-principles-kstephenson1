@@ -2,9 +2,22 @@
 
 using System;
 using System.Collections.Generic;
+using w3_assignment_ksteph.Inventory
 
 public class InventorySerializer
 {
+    public static Inventory Deserialize(string inventoryString)
+    {
+        // Converts String into Inventory
+        return ToInventory(ToItemList(inventoryString));
+    }
+
+    public static string Serialize(Inventory inventory)
+    {
+        // Converts Inventory into String
+        return ToString(ToItemList(inventory));
+    }
+    
     public static void ListInventory(Inventory inventory)
     {
         ListInventory(ToString(inventory));
@@ -75,17 +88,5 @@ public class InventorySerializer
     {
         // Converts Inventory to List<Item>
         return inventory.Items;
-    }
-
-    public static Inventory ToInventory(string inventoryString)
-    {
-        // Converts String into Inventory
-        return ToInventory(ToItemList(inventoryString));
-    }
-
-    public static string ToString(Inventory inventory)
-    {
-        // Converts Inventory into String
-        return ToString(ToItemList(inventory));
     }
 }
