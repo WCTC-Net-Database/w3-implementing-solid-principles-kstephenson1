@@ -1,7 +1,6 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
 using CsvHelper.TypeConversion;
-using w3_assignment_ksteph.Inventory;
 
 namespace w3_assignment_ksteph.Csv;
 

@@ -1,7 +1,5 @@
 ﻿namespace w3_assignment_ksteph.DataHelper;
 
-using System.Diagnostics;
-
 // The DataHelper.Input class contains a few methods and overrides that assist in gaining input from the user that includes different levels of input validation.
 class Input
 {

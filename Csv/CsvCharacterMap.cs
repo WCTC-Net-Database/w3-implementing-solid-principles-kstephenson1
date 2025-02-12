@@ -1,7 +1,4 @@
 ﻿
-using CsvHelper;
-using w3_assignment_ksteph.Character;
-using w3_assignment_ksteph.Csv;
 using CsvHelper.Configuration;
 
 namespace w3_assignment_ksteph.Csv;
