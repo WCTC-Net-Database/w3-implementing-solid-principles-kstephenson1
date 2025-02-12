@@ -17,9 +17,7 @@ class Program
 
     public static void Initialization()
     {
-        // The Initialization method runs a few things that need to be done before the main part of the program runs.  In this case,
-        // it builds the menues, fixes the color bug that windows experiences with ColorfulConsoles, and imports the character list
-        // from the csv file.
+        // The Initialization method runs a few things that need to be done before the main part of the program runs.
 
         UserInterface.BuildMenus(); // Builds the menus and prepares the user interface tables.
         CharacterManager.ImportCharacters(); //Imports the caracters from the csv file.
