@@ -48,7 +48,7 @@ public static class CharacterManager
         Console.WriteLine($"\nWelcome, {name} the {characterClass}! You are level {level} and your equipment includes: {string.Join(", ", inventory)}.\n");
 
         CharacterManager.AddCharacter(
-            new() { Name = name, Class = characterClass, Level = level, HitPoints = hitPoints, Inventory = InventoryManager.ToInventory(inventory) });
+            new() { Name = name, Class = characterClass, Level = level, HitPoints = hitPoints, Inventory = InventorySerializer.Deserialize(inventory) });
 
         CharacterManager.ExportCharacters();
     }
