@@ -2,7 +2,7 @@
 
 public static class Config
 {
-    // Added this csv file to add changable aspects of the program.  Could (and probably should) be changed to a .config file at a later date.
+    // Added this config file to add changable aspects of the program.  Could (and probably should) be changed to a .config file at a later date.
 
     /* * * * * * * * * * * * * * * * *
      *       CHARACTER SETTINGS      *
