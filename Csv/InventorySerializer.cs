@@ -19,32 +19,6 @@ public class InventorySerializer
         // Converts Inventories into String
         return ToString(ToItemList(inventory));
     }
-    
-    public static void ListInventory(Inventory inventory) // takes in an inventory and displays it to the user
-    {
-        ListInventory(Serialize(inventory));
-    }
-
-    private static void ListInventory(string inventoryString) // Takes the inventory string, splits it, and displays the inventory to the user.
-    {
-        Console.WriteLine($"Inventory:");
-
-        if (inventoryString == "" || inventoryString == null)
-        {
-            Console.WriteLine("    - (Empty)");
-        }
-        else
-        {
-            List<Item> items = ToItemList(inventoryString);
-
-            foreach (Item item in items)
-            {
-                Console.WriteLine($"    - {item.Name}");
-            }
-
-            Console.WriteLine("\n");
-        }
-    }
 
     private static List<Item> ToItemList(string itemString) // Turns an item string into an item list
     {
