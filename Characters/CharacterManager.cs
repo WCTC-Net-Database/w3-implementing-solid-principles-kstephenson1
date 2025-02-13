@@ -1,25 +1,25 @@
-﻿namespace w3_assignment_ksteph.Character;
+﻿namespace w3_assignment_ksteph.Characters;
 
 using Spectre.Console;
 using w3_assignment_ksteph.Config;
 using w3_assignment_ksteph.Csv;
 using w3_assignment_ksteph.DataHelper;
-using w3_assignment_ksteph.Inventory;
+using w3_assignment_ksteph.Inventories;
 
 
-// The CharacterHandler class contains methods that manipulate Character data, including displaying, adding, and leveling up characters.
+// The CharacterHandler class contains methods that manipulate Characters data, including displaying, adding, and leveling up characters.
 
 public static class CharacterManager
 {
-    private const string CHARACTER_PATH = "input.csv";
-    public static List<Character> Characters { get; set; } = new();
+    private const string CHARACTER_PATH = "input.csv"; // The path of the character csv file
+    public static List<Character> Characters { get; set; } = new(); // A list of characters objects for reference
 
-    public static void ImportCharacters()
+    public static void ImportCharacters() //Imports the characters from the csv file and stores them.
     {
         Characters = CsvManager.ImportCharacters(CHARACTER_PATH);
     }
 
-    public static void ExportCharacters()
+    public static void ExportCharacters() //Exports the stored characters into the specified csv file
     {
         CsvManager.ExportCharacters(Characters, CHARACTER_PATH);
     }
@@ -35,7 +35,7 @@ public static class CharacterManager
         }
     }
 
-    public static void NewCharacter()
+    public static void NewCharacter() // Creates a new character.  Asks for name, class, level, hitpoints, and items.
     {
         string name = Input.GetString("Enter your character's name: ");
         string characterClass = Input.GetString("Enter your character's class: ");
@@ -63,7 +63,7 @@ public static class CharacterManager
         CharacterManager.ExportCharacters();
     }
 
-    public static void FindCharacter()
+    public static void FindCharacter() // Asks the user for a name and displays a character based on input.
     {
         string characterName = Input.GetString("What is the name of the character you would like to search for? ");
         Character character = FindCharacterByName(characterName);
@@ -78,12 +78,12 @@ public static class CharacterManager
         }
     }
 
-    public static Character? FindCharacterByName(string name)
+    private static Character? FindCharacterByName(string name) // Finds and returns a character based on input.
     {
         return Characters.Where(character => character.Name.ToUpper() == name.ToUpper()).FirstOrDefault();
     }
 
-    public static void LevelUp()
+    public static void LevelUp() //Asks the user for a character to level up, then displays that character.
     {
         string characterName = Input.GetString("What is the name of the character that you would like to level up? ");
         Character character = FindCharacterByName(characterName);
@@ -97,8 +97,10 @@ public static class CharacterManager
                 AnsiConsole.MarkupLine($"[Green]Congratulations! {character.Name} has reached level {character.Level}[/]\n");
                 character.DisplayCharacterInfo();
             }
-
-            AnsiConsole.MarkupLine($"[Red]{character.Name} is already max level! ({Config.CHARACTER_LEVEL_MAX})[/]\n");
+            else
+            {
+                AnsiConsole.MarkupLine($"[Red]{character.Name} is already max level! ({Config.CHARACTER_LEVEL_MAX})[/]\n");
+            }
         }
         else
         {
@@ -106,12 +108,12 @@ public static class CharacterManager
 
         }
     }
-    public static void AddCharacter(Character character)
+    public static void AddCharacter(Character character) // Adds a new character to the stored characters list.
     {
         Characters.Add(character);
     }
 
-    public static void DeleteCharacter(Character character)
+    public static void DeleteCharacter(Character character) // Removes a character from the stored characters list.
     {
         Characters.Remove(character);
     }
