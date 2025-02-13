@@ -9,8 +9,14 @@ public class Item
 
     public Item(string id)
     {
-        ID = id.ToLower();
-        Name = StringHelper.ToTitleCase(id);
+        ID = StringHelper.ToItemIdFormat(id);
+        Name = StringHelper.ToItemNameFormat(id);
+    }
+
+    public Item(string id, string name)
+    {
+        ID = StringHelper.ToItemIdFormat(id);
+        Name = StringHelper.ToItemNameFormat(name);
     }
 
     public override string ToString()

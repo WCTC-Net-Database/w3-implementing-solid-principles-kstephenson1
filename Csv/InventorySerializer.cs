@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using w3_assignment_ksteph.Inventory;
+using w3_assignment_ksteph.DataHelper;
 
 public class InventorySerializer
 {
@@ -69,9 +70,9 @@ public class InventorySerializer
             foreach (Item item in items)
             {
                 if (inventory == "")
-                    inventory += item;
+                    inventory += StringHelper.ToItemIdFormat(item.ID);
                 else
-                    inventory += "|" + item;
+                    inventory += "|" + StringHelper.ToItemIdFormat(item.ID);
             }
 
             return inventory;
