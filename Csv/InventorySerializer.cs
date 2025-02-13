@@ -37,7 +37,7 @@ public class InventorySerializer
 
             foreach (Item item in items)
             {
-                Console.WriteLine($"    - {item}");
+                Console.WriteLine($"    - {item.Name}");
             }
 
             Console.WriteLine("\n");
@@ -69,9 +69,9 @@ public class InventorySerializer
             foreach (Item item in items)
             {
                 if (inventory == "")
-                    inventory += item.ToString();
+                    inventory += item;
                 else
-                    inventory += "|" + item.ToString();
+                    inventory += "|" + item;
             }
 
             return inventory;

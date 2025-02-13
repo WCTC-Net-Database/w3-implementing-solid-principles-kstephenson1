@@ -1,16 +1,20 @@
-﻿namespace w3_assignment_ksteph.Inventory;
+﻿using w3_assignment_ksteph.DataHelper;
+
+namespace w3_assignment_ksteph.Inventory;
 
 public class Item
 {
     public string Name { get; set; }
+    public string ID { get; set; }
 
-    public Item(string name)
+    public Item(string id)
     {
-        Name = name;
+        ID = id.ToLower();
+        Name = StringHelper.ToTitleCase(id);
     }
 
     public override string ToString()
     {
-        return Name;
+        return ID;
     }
 }
