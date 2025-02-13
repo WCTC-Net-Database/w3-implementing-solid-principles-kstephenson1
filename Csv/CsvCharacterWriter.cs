@@ -4,12 +4,12 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using System.Collections.Generic;
 using System.Globalization;
-using w3_assignment_ksteph.Character;
+using w3_assignment_ksteph.Characters;
 using w3_assignment_ksteph.Config;
 
 public static class CsvCharacterWriter
 {
-
+    // CsvCharacterWriter is used to export the characters to a text file.
     public static void Export(List<Character> characters, string path)
     {
         List<Character> outputCharacters = new();

@@ -2,29 +2,30 @@
 
 using System;
 using System.Collections.Generic;
-using w3_assignment_ksteph.Inventory;
+using w3_assignment_ksteph.Inventories;
 using w3_assignment_ksteph.DataHelper;
 
 public class InventorySerializer
 {
-    public static Inventory Deserialize(string inventoryString)
+    // InventorySerializer contains fuctions to turn a string into List<Item> to Inventories and vice versa.
+    public static Inventory Deserialize(string inventoryString)//Takes an inventory string and returns an inventory object.
     {
-        // Converts String into Inventory
+        // Converts String into Inventories
         return ToInventory(ToItemList(inventoryString));
     }
 
-    public static string? Serialize(Inventory inventory)
+    public static string? Serialize(Inventory inventory) //Takes an inventory object and returns it in string form.
     {
-        // Converts Inventory into String
+        // Converts Inventories into String
         return ToString(ToItemList(inventory));
     }
     
-    public static void ListInventory(Inventory inventory)
+    public static void ListInventory(Inventory inventory) // takes in an inventory and displays it to the user
     {
         ListInventory(Serialize(inventory));
     }
 
-    public static void ListInventory(string inventoryString) // Takes the inventory string, splits it, and displays the inventory to the user.
+    private static void ListInventory(string inventoryString) // Takes the inventory string, splits it, and displays the inventory to the user.
     {
         Console.WriteLine($"Inventory:");
 
@@ -45,7 +46,7 @@ public class InventorySerializer
         }
     }
 
-    public static List<Item> ToItemList(string itemString)
+    private static List<Item> ToItemList(string itemString) // Turns an item string into an item list
     {
         //Converts String into List<Item>
         List<Item> itemList = [];
@@ -58,7 +59,7 @@ public class InventorySerializer
         return itemList;
     }
 
-    public static string ToString(List<Item> items)
+    private static string ToString(List<Item> items) // turns an item list into an item string
     {
         // Converts List<Item> to String
         if (items == null)
@@ -79,15 +80,15 @@ public class InventorySerializer
         }
     }
 
-    public static Inventory ToInventory(List<Item> itemList)
+    private static Inventory ToInventory(List<Item> itemList) // turns an item list into an inventory
     {
-        // Converts List<Item> to Inventory
+        // Converts List<Item> to Inventories
         return new(itemList);
     }
 
-    public static List<Item>? ToItemList(Inventory inventory)
+    private static List<Item>? ToItemList(Inventory inventory) // turns an inventory into an item list
     {
-        // Converts Inventory to List<Item>
+        // Converts Inventories to List<Item>
         return inventory.Items;
     }
 }

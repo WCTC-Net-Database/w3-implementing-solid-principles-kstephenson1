@@ -1,10 +1,12 @@
-﻿
-using CsvHelper.Configuration;
+﻿using CsvHelper.Configuration;
 
 namespace w3_assignment_ksteph.Csv;
-// The Character Map is used to convert character information from csv format to a Character object.
-public class CsvCharacterMap : ClassMap<Character.Character>
+
+public class CsvCharacterMap : ClassMap<Characters.Character>
 {
+    // The CsvCharacterMap is an extension of CsvHelper that assists turning the csv file into a character.
+    // This class allows the inventory to be imported as a custom Inventories object instead of a string with
+    // the help of the InventoryConverter
     public CsvCharacterMap()
     {
         InventoryConverter inventoryConverter = new InventoryConverter();
