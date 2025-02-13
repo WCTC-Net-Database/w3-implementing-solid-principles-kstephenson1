@@ -9,6 +9,6 @@ public class InventoryConverter : DefaultTypeConverter
 {
     public override object ConvertFromString(string? text, IReaderRow row, MemberMapData memberMapData)
     {
-        return InventorySerializer.Deserialize(text);
+        return InventorySerializer.Deserialize(text!);
     }
 }
