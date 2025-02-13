@@ -6,7 +6,7 @@ public class MainMenu : Menu
 {
     // The MainMenu contains items that have 4 parts, the index, the name, the description, and the action that
     // is completed when that menu item is chosen.
-    public void AddMenuItem(int index, string name, string desc, Action? action)
+    public void AddMenuItem(int index, string name, string desc, Action action)
     {
         _menuItems.Add(new MainMenuItem(index, name, desc, action));
     }
@@ -30,7 +30,7 @@ public class MainMenu : Menu
         // The Action method takes in a selecion from the main menu, then triggers the action associated with that menu item.
         List<MainMenuItem> menuItems = new();
 
-        foreach (MainMenuItem item in _menuItems) // Casts each of the MenuItems into MainMenuItems so the actions can work.
+        foreach (MenuItem item in _menuItems) // Casts each of the MenuItems into MainMenuItems so the actions can work.
         {
             menuItems.Add((MainMenuItem)item); 
         }

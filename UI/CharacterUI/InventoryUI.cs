@@ -10,7 +10,7 @@ public static class InventoryUI
     [Obsolete]
     public static void DisplayInventory(Inventory inventory) // takes in an inventory and displays it to the user
     {
-        DisplayInventory(InventorySerializer.Serialize(inventory));
+        DisplayInventory(InventorySerializer.Serialize(inventory)!);
     }
 
     [Obsolete]

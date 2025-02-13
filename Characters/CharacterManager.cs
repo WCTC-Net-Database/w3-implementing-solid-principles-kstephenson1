@@ -1,10 +1,12 @@
 ﻿namespace w3_assignment_ksteph.Characters;
 
 using Spectre.Console;
+using System.Collections;
 using w3_assignment_ksteph.Config;
 using w3_assignment_ksteph.Csv;
 using w3_assignment_ksteph.DataHelper;
 using w3_assignment_ksteph.Inventories;
+using w3_assignment_ksteph.UI;
 
 
 // The CharacterHandler class contains methods that manipulate Characters data, including displaying, adding, and leveling up characters.
@@ -48,7 +50,7 @@ public static class CharacterManager
             string? newItem = Input.GetString($"Enter the name of an item in {name}'s inventory. (Leave blank to end): ", false);
             if (newItem != "")
             {
-                inventory.Items.Add(new(newItem));
+                inventory.Items!.Add(new(newItem));
                 continue;
             }
             break;
@@ -66,7 +68,7 @@ public static class CharacterManager
     public static void FindCharacter() // Asks the user for a name and displays a character based on input.
     {
         string characterName = Input.GetString("What is the name of the character you would like to search for? ");
-        Character character = FindCharacterByName(characterName);
+        Character character = FindCharacterByName(characterName)!;
         Console.Clear();
 
         if (character != null)
@@ -86,7 +88,7 @@ public static class CharacterManager
     public static void LevelUp() //Asks the user for a character to level up, then displays that character.
     {
         string characterName = Input.GetString("What is the name of the character that you would like to level up? ");
-        Character character = FindCharacterByName(characterName);
+        Character character = FindCharacterByName(characterName)!;
         Console.Clear();
 
         if (character != null)

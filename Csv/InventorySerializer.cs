@@ -17,7 +17,7 @@ public class InventorySerializer
     public static string? Serialize(Inventory inventory) //Takes an inventory object and returns it in string form.
     {
         // Converts Inventories into String
-        return ToString(ToItemList(inventory));
+        return ToString(ToItemList(inventory)!);
     }
 
     private static List<Item> ToItemList(string itemString) // Turns an item string into an item list

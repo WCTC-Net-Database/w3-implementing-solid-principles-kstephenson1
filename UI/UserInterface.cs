@@ -1,4 +1,5 @@
-﻿using w3_assignment_ksteph.Characters;
+﻿using System.Diagnostics;
+using w3_assignment_ksteph.Characters;
 
 namespace w3_assignment_ksteph.UI;
 
@@ -22,7 +23,7 @@ public static class UserInterface
         MainMenu.AddMenuItem(2, "Find Character", "Finds an existing character by name.", CharacterManager.FindCharacter);
         MainMenu.AddMenuItem(3, "New Character", "Creates a new character.", CharacterManager.NewCharacter);
         MainMenu.AddMenuItem(4, "Level Up Chracter", "Levels an existing character.", CharacterManager.LevelUp);
-        MainMenu.AddMenuItem(5, "Exit", "Ends the program.", null);
+        MainMenu.AddMenuItem(5, "Exit", "Ends the program.", DoNothing);
         MainMenu.BuildTable();
     }
 
@@ -31,5 +32,10 @@ public static class UserInterface
         ExitMenu = new();
         ExitMenu.AddMenuItem("Thank you for using the RPG Character Editor.");
         ExitMenu.BuildTable();
+    }
+
+    private static void DoNothing() // This method does nothing... or does it?
+    {
+        throw new UnreachableException("Error: Something did nothing and it shouldn't have");
     }
 }

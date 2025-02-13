@@ -29,9 +29,9 @@ public static class CharacterUI
         Grid invTable = new Grid();
         invTable.AddColumn();
 
-        if (character.Inventory.Items.Any() == true)
+        if (character.Inventory.Items!.Any() == true)
         {
-            foreach (Item item in character.Inventory.Items)
+            foreach (Item item in character.Inventory.Items!)
             {
                 invTable.AddRow(item.Name);
             }
