@@ -1,4 +1,4 @@
-﻿namespace w3_assignment_ksteph.Inventory;
+﻿namespace w3_assignment_ksteph.Inventories;
 
 using w3_assignment_ksteph.Csv;
 

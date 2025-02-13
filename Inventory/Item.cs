@@ -1,6 +1,6 @@
 ﻿using w3_assignment_ksteph.DataHelper;
 
-namespace w3_assignment_ksteph.Inventory;
+namespace w3_assignment_ksteph.Inventories;
 
 public class Item
 {

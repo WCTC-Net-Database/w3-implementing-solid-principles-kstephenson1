@@ -1,6 +1,6 @@
 ﻿using w3_assignment_ksteph.Csv;
 
-namespace w3_assignment_ksteph.Inventory;
+namespace w3_assignment_ksteph.Inventories;
 public class Inventory
 {
     public List<Item>? Items { get; set; } = new();
