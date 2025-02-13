@@ -9,12 +9,10 @@ public class CsvCharacterMap : ClassMap<Characters.Character>
     // the help of the InventoryConverter
     public CsvCharacterMap()
     {
-        InventoryConverter inventoryConverter = new();
-    
         Map(character => character.Name);
         Map(character => character.Class);
         Map(character => character.Level);
         Map(character => character.HitPoints);
-        Map(character => character.Inventory).TypeConverter(inventoryConverter);
+        Map(character => character.Inventory).TypeConverter(new InventoryConverter());
     }
 }
