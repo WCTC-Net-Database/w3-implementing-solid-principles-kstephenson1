@@ -1,6 +1,6 @@
 ﻿
 using w3_assignment_ksteph.DataHelper;
-using w3_assignment_ksteph.Character;
+using w3_assignment_ksteph.Characters;
 using w3_assignment_ksteph.UI;
 
 namespace w3_assignment_ksteph;
@@ -44,9 +44,9 @@ class Program
         UserInterface.ExitMenu.Show(true); //Shows the exit menu and leaves the program.
     }
 
-    public static void Test()
-    {
+    //public static void Test() // for testing purposes only.
+    //{
        
-    }
+    //}
 
 }
